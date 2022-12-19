@@ -17,10 +17,8 @@ meta = meta[~meta["image_name"].isin(dupes)]
 meta.reset_index(drop=True, inplace=True)
 # get random samples of benign and malignant
 benign = meta[meta["target"] == 0]
-print(benign.shape)
 benign = benign.sample(n_benign)
 malignant = meta[meta["target"] == 1]
-print(malignant.shape)
 malignant = malignant.sample(n_malignant)
 sample = pd.concat([benign, malignant])
 sample.reset_index(drop=True, inplace=True)
